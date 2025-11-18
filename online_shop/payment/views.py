@@ -16,7 +16,7 @@ class GenerateVerificationCodeView(views.APIView):
         code = str(random.randint(1000, 9999))
 
 
-        cache.set(key, code, timeout=CODE_EXPIRATION_SECONDS)
+        cache.set(key, code, timeout=3600)
 
         return Response({
             'code': code,
